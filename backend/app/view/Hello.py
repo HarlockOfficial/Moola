@@ -4,4 +4,4 @@ from rest_framework.views import APIView
 
 class HelloView(APIView):
     def get(self, request):
-        return JsonResponse("{\"message\": \"Hello, world!\"}")
+        return JsonResponse({"message": "Hello, world!"})
