@@ -1,19 +1,20 @@
+from django.http import JsonResponse
 from rest_framework.views import APIView
 
 
 class UserView(APIView):
     def get(self):
         # logout
-        pass
+        return JsonResponse({'message': 'TODO: logout'})
 
     def post(self):
         # login
-        pass
+        return JsonResponse({'message': 'TODO: login'})
 
     def put(self):
         # register
-        pass
+        return JsonResponse({'message': 'TODO: register'})
 
     def delete(self):
         # delete
-        pass
+        return JsonResponse({'message': 'TODO: pause account'})
