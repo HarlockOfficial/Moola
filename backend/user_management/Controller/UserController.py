@@ -29,8 +29,6 @@ def login(username, password):
     from django.contrib.auth import authenticate
     user = authenticate(username=username, password=password)
     if user is not None:
-        if not user.is_active:
-            return {'message': 'Account disabled'}, 403
         token, created = Token.objects.get_or_create(user=user)
         return {'message': 'Logged in!', 'token': token.key, 'user': UserSerializer(user).data}, 200
     else:
