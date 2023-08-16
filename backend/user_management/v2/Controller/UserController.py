@@ -23,7 +23,7 @@ def create_user(email):
         user = UserModel.objects.create_user(email=email, username=email, password=password)
         message = loader.render_to_string('email/register.html',
                                           {
-                                              'subject': os.getenv('EMAIL_SUBJECT'),
+                                              'subject': os.getenv('REGISTER_EMAIL_SUBJECT'),
                                               'username': email,
                                               'password': password
                                           })
