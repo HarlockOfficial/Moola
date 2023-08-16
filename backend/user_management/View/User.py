@@ -3,18 +3,18 @@ from rest_framework.views import APIView
 
 
 class UserView(APIView):
-    def get(self):
+    def get(self, request):
         # logout
-        return JsonResponse({'message': 'TODO: logout'})
+        return JsonResponse({'message': 'TODO: logout', 'request': str(request.query_params)})
 
-    def post(self):
+    def post(self, request):
         # login
-        return JsonResponse({'message': 'TODO: login'})
+        return JsonResponse({'message': 'TODO: login', 'request': str(request.data)})
 
-    def put(self):
+    def put(self, request):
         # register
-        return JsonResponse({'message': 'TODO: register'})
+        return JsonResponse({'message': 'TODO: register', 'request': str(request.data)})
 
-    def delete(self):
+    def delete(self, request):
         # delete
-        return JsonResponse({'message': 'TODO: pause account'})
+        return JsonResponse({'message': 'TODO: pause account', 'request': str(request.query_params)})
