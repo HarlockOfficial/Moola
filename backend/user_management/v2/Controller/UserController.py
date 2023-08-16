@@ -20,7 +20,7 @@ def create_user(email):
         return {'message': 'User already exists'}, 409
     except UserModel.DoesNotExist:
         password = UserModel.objects.make_random_password()
-        user = UserModel.objects.create_user(email=email, password=password)
+        user = UserModel.objects.create_user(email=email, username=email, password=password)
         message = loader.render_to_string('email/register.html',
                                           {
                                               'subject': os.getenv('EMAIL_SUBJECT'),
