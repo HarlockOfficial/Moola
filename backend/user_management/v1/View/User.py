@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from rest_framework.views import APIView
 
-from user_management.Controller import UserController
+from user_management.v1.Controller import UserController
 
 
 class UserView(APIView):
@@ -36,7 +36,7 @@ class UserView(APIView):
             Returns a 409 if the username and/or the email are already taken
         """
         response_content, response_code = UserController.register(request.data['email'], request.data['username'],
-                                                                    request.data['password'])
+                                                                  request.data['password'])
         return JsonResponse(response_content, status=response_code)
 
     def delete(self, request):

@@ -144,3 +144,13 @@ MEDIA_ROOT = '/home/Mulakapp/backend/media'
 MEDIA_URL = '/media/'
 STATIC_ROOT = '/home/Mulakapp/backend/static'
 STATIC_URL = '/static/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+ACCOUNT_ACTIVATION_DAYS = 7
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = 1
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
+EMAIL_SUBJECT_PREFIX = '[Moola] '
