@@ -27,7 +27,7 @@ def create_user(email):
                                               'username': email,
                                               'password': password
                                           })
-        user.email_user(subject=os.getenv('EMAIL_SUBJECT'), message=message, html_message=message)
+        user.email_user(subject=os.getenv('REGISTER_EMAIL_SUBJECT'), message=message, html_message=message)
         user.save()
         return {'message': 'Account created!', 'user': UserSerializer(user).data}, 201
 
