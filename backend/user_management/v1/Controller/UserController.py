@@ -67,3 +67,19 @@ def delete(token):
         return {'message': 'Account deleted'}, 200
     except Token.DoesNotExist:
         return {'message': 'Invalid token'}, 403
+
+
+def get_user(token: str):
+    """
+        Receives the auth token in the header
+        Returns a 200 and the user if the token is valid
+        Returns a 403 if the token is invalid
+    """
+    if not token:
+        return {'message': 'No token provided'}, 403
+    try:
+        token = Token.objects.get(key=token)
+        user = token.user
+        return {'message': 'User found!', 'user': UserSerializer(user).data}, 200
+    except Token.DoesNotExist:
+        return {'message': 'Invalid token'}, 403

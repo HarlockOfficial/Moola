@@ -1,7 +1,7 @@
 from rest_framework.serializers import ModelSerializer
 
 from user_management.Serializer import UserSerializer
-from v1.Model import SupermarketProductPrice
+from v1.Model import SupermarketProductPriceModel
 from v1.Serializer import ProductSerializer, SupermarketSerializer
 
 
@@ -12,5 +12,5 @@ class SupermarketProductPriceSerializer(ModelSerializer):
     updated_by = UserSerializer(read_only=True)
 
     class Meta:
-        model = SupermarketProductPrice
+        model = SupermarketProductPriceModel
         fields = '__all__'

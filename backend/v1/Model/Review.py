@@ -10,4 +10,6 @@ class ReviewModel(models.Model):
     rating = models.FloatField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    updated_by = models.ForeignKey(UserModel, blank=True, none=True, default=None, on_delete=models.CASCADE, related_name='review_updated_by')
     is_active = models.BooleanField(default=True)
+    deleted_by = models.ForeignKey(UserModel, blank=True, none=True, default=None, on_delete=models.CASCADE, related_name='review_deleted_by')
