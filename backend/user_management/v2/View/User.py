@@ -26,7 +26,7 @@ class UserView(APIView):
             response_content, status_code = UserControllerV1.login(request.data['email'], request.data['password'])
         response = JsonResponse(response_content, status=status_code)
         if 'token' in response_content.keys():
-                response['Authorization'] = response_content['token']
+            response['Authorization'] = response_content['token']
         return response
 
     def patch(self, request):
